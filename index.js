@@ -1,10 +1,12 @@
-function minimumTotal(triangle) {
-  const n = triangle.length;
-  const dp = triangle[n - 1];
-  for (let i = n - 2; i >= 0; i--) {
-    for (let j = 0; j <= i; j++) {
-      dp[j] = triangle[i][j] + Math.min(dp[j], dp[j + 1]);
-    }
+function isAnagram(s, t) {
+  if (s.length !== t.length) return false;
+  const map = new Map();
+  for (const char of s) {
+    map.set(char, (map.get(char) || 0) + 1);
   }
-  return dp[0];
+  for (const char of t) {
+    if (!map.has(char) || map.get(char) === 0) return false;
+    map.set(char, map.get(char) - 1);
+  }
+  return true;
 }
