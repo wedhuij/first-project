@@ -1,12 +1,11 @@
-function isAnagram(s, t) {
-  if (s.length !== t.length) return false;
-  const map = new Map();
-  for (const char of s) {
-    map.set(char, (map.get(char) || 0) + 1);
+function findMaxConsecutiveOnes(nums) {
+  let maxCount = 0;
+  let count = 0;
+  for (const num of nums) {
+    if (num === 1) {
+      count++;
+      maxCount = Math.max(maxCount, count);
+    } else count = 0;
   }
-  for (const char of t) {
-    if (!map.has(char) || map.get(char) === 0) return false;
-    map.set(char, map.get(char) - 1);
-  }
-  return true;
+  return maxCount;
 }
