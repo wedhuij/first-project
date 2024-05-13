@@ -1,11 +1,3 @@
-function findMaxConsecutiveOnes(nums) {
-  let maxCount = 0;
-  let count = 0;
-  for (const num of nums) {
-    if (num === 1) {
-      count++;
-      maxCount = Math.max(maxCount, count);
-    } else count = 0;
-  }
-  return maxCount;
-}
+const colors = ["red", "green", "blue"];
+const randomColor = colors[Math.floor(Math.random() * colors.length)];
+console.log(randomColor);
